@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" width="100%" height="70" preserveAspectRatio="xMidYMid slice">
+  <!-- Farm crop rows -->
+  <path d="M0 50 Q160 30 320 50 L320 80 L0 80 Z" fill="#9ec492" opacity="0.6"/>
+  <path d="M0 60 Q160 45 320 60 L320 80 L0 80 Z" fill="#80b372" opacity="0.7"/>
+  <!-- Crop furrow lines -->
+  <path d="M40 80 L90 55" stroke="#5a8b4e" stroke-width="2" opacity="0.5"/>
+  <path d="M100 80 L140 55" stroke="#5a8b4e" stroke-width="2" opacity="0.5"/>
+  <path d="M160 80 L180 55" stroke="#5a8b4e" stroke-width="2" opacity="0.5"/>
+  <path d="M220 80 L220 55" stroke="#5a8b4e" stroke-width="2" opacity="0.5"/>
+  <!-- Mini tractor silhouette -->
+  <g transform="translate(240, 32)">
+    <rect x="15" y="10" width="22" height="15" rx="3" fill="#4d7c42"/>
+    <rect x="25" y="2" width="14" height="10" rx="2" fill="#36582e"/>
+    <circle cx="18" cy="25" r="7" fill="#2d3748"/>
+    <circle cx="38" cy="23" r="10" fill="#2d3748"/>
+    <circle cx="38" cy="23" r="4" fill="#cbd5e0"/>
+    <circle cx="18" cy="25" r="3" fill="#cbd5e0"/>
+  </g>
+</svg>

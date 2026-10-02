@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Meet the Team | JIIT IMC 2026</title>
+  <meta name="description" content="Meet the JIIT student team behind SEHAT, MistMinds, and AgriCar at Indian Mobile Congress 2026.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="team-page-body">
+  <div class="app-container">
+    <nav class="team-nav-bar">
+      <a href="index.html" class="nav-back-circle-link" aria-label="Back to home">
+        <span class="back-circle-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        </span>
+        <span>Home</span>
+      </a>
+
+      <div class="team-orbit-pager">
+        <span class="team-orbit-page-num">1 / 1</span>
+        <button class="team-pager-circle-btn" disabled aria-label="Previous page">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <button class="team-pager-circle-btn active" aria-label="Next page">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+      </div>
+    </nav>
+
+    <header class="team-header-block">
+      <div class="team-accent-pill"></div>
+      <h1 class="team-title-main">Meet the Team</h1>
+      <p class="team-subtitle-main">Different skills. A shared vision.</p>
+      <p class="team-mission-desc">A group of students building real-world solutions at the intersection of technology and societal impact.</p>
+    </header>
+
+    <main class="team-constellation-main">
+      <div class="constellation-wrapper">
+        <!-- SVG Orbit Tracks, Nodes, and Central Radial Sphere -->
+        <svg class="constellation-svg" viewBox="0 0 500 520" preserveAspectRatio="xMidYMid meet">
+          <defs>
+            <radialGradient id="centerOrbGrad" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#FFF5EC" stop-opacity="0.9" />
+              <stop offset="60%" stop-color="#F2EDF8" stop-opacity="0.5" />
+              <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.1" />
+            </radialGradient>
+            <filter id="glowDot" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+          </defs>
+
+          <!-- Central Glowing Sphere Rings -->
+          <circle cx="250" cy="275" r="88" fill="url(#centerOrbGrad)" stroke="rgba(226, 232, 240, 0.7)" stroke-width="1.5" />
+          <circle cx="250" cy="275" r="58" fill="rgba(248, 243, 248, 0.7)" />
+
+          <!-- Dotted Orbital Interconnect Lines -->
+          <!-- Top to Mid-Left (Saharsh to Dev) -->
+          <path d="M 215 95 C 160 120 120 160 105 185" fill="none" stroke="rgba(195, 210, 230, 0.75)" stroke-width="1.5" stroke-dasharray="4 5" />
+          <!-- Top to Mid-Right (Saharsh to Bhavaya) -->
+          <path d="M 285 95 C 340 120 380 160 395 185" fill="none" stroke="rgba(195, 210, 230, 0.75)" stroke-width="1.5" stroke-dasharray="4 5" />
+          <!-- Mid-Left to Bottom-Left (Dev to Hetal) -->
+          <path d="M 85 260 C 80 320 100 370 125 395" fill="none" stroke="rgba(195, 210, 230, 0.75)" stroke-width="1.5" stroke-dasharray="4 5" />
+          <!-- Mid-Right to Bottom-Right (Bhavaya to Aditi) -->
+          <path d="M 415 260 C 420 320 400 370 375 395" fill="none" stroke="rgba(195, 210, 230, 0.75)" stroke-width="1.5" stroke-dasharray="4 5" />
+          <!-- Bottom Connection (Hetal to Aditi) -->
+          <path d="M 180 435 C 220 450 280 450 320 435" fill="none" stroke="rgba(195, 210, 230, 0.75)" stroke-width="1.5" stroke-dasharray="4 5" />
+          <!-- Top Center stub above Saharsh -->
+          <path d="M 250 15 L 250 38" fill="none" stroke="rgba(195, 210, 230, 0.75)" stroke-width="1.5" stroke-dasharray="3 4" />
+
+          <!-- Colored Glowing Orbit Nodes matching screenshot -->
+          <!-- Amber Top Node -->
+          <circle cx="250" cy="18" r="5" fill="#D97736" filter="url(#glowDot)" />
+          <!-- Sky Blue Node (Saharsh - Dev) -->
+          <circle cx="120" cy="145" r="4.5" fill="#3B82F6" filter="url(#glowDot)" />
+          <!-- Green Node (Saharsh - Bhavaya) -->
+          <circle cx="380" cy="145" r="4.5" fill="#22C55E" filter="url(#glowDot)" />
+          <!-- Purple Node (Dev - Hetal) -->
+          <circle cx="95" cy="335" r="4.5" fill="#A855F7" filter="url(#glowDot)" />
+          <!-- Coral Node (Bhavaya - Aditi) -->
+          <circle cx="405" cy="335" r="4.5" fill="#F43F5E" filter="url(#glowDot)" />
+        </svg>
+
+        <!-- 5 Interactive Member Nodes -->
+        <!-- 1. Saharsh Pathak (Top Center) -->
+        <a id="orbit-saharsh" href="profile.html?id=saharsh" class="orbit-node node-saharsh" aria-label="View Saharsh Pathak Profile">
+          <div class="avatar-halo halo-saharsh">
+            <img src="assets/ui/saharsh_orbit_clean.webp" alt="Saharsh Pathak" class="avatar-photo">
+          </div>
+          <span class="member-pill-tag pill-saharsh">Saharsh Pathak</span>
+        </a>
+
+        <!-- 2. Dev (Middle Left) -->
+        <a id="orbit-dev" href="profile.html?id=dev" class="orbit-node node-dev" aria-label="View Dev Gupta Profile">
+          <div class="avatar-halo halo-dev">
+            <img src="assets/ui/dev_orbit_clean.webp" alt="Dev" class="avatar-photo">
+          </div>
+          <span class="member-pill-tag pill-dev">Dev</span>
+        </a>
+
+        <!-- 3. Bhavaya (Middle Right) -->
+        <a id="orbit-bhavaya" href="profile.html?id=bhvaya" class="orbit-node node-bhavaya" aria-label="View Bhavaya Grover Profile">
+          <div class="avatar-halo halo-bhavaya">
+            <img src="assets/ui/bhavaya_orbit_clean.webp" alt="Bhavaya" class="avatar-photo">
+          </div>
+          <span class="member-pill-tag pill-bhavaya">Bhavaya</span>
+        </a>
+
+        <!-- 4. Hetal (Bottom Left) -->
+        <a id="orbit-hetal" href="profile.html?id=hetal" class="orbit-node node-hetal" aria-label="View Hetal Dayanai Profile">
+          <div class="avatar-halo halo-hetal">
+            <img src="assets/ui/hetal_orbit_clean.webp" alt="Hetal" class="avatar-photo">
+          </div>
+          <span class="member-pill-tag pill-hetal">Hetal</span>
+        </a>
+
+        <!-- 5. Aditi (Bottom Right) -->
+        <a id="orbit-aditi" href="profile.html?id=aditi" class="orbit-node node-aditi" aria-label="View Aditi Tejas Profile">
+          <div class="avatar-halo halo-aditi">
+            <img src="assets/ui/aditi_orbit_clean.webp" alt="Aditi" class="avatar-photo">
+          </div>
+          <span class="member-pill-tag pill-aditi">Aditi</span>
+        </a>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    // Preserve fromProject query param if navigated from project detail
+    const urlParams = new URLSearchParams(window.location.search);
+    const fromProj = urlParams.get('project');
+    if (fromProj) {
+      document.querySelectorAll('.orbit-node').forEach(node => {
+        const href = node.getAttribute('href');
+        node.setAttribute('href', `${href}&fromProject=${fromProj}`);
+      });
+    }
+  </script>
+  <script src="js/agentation-loader.js"></script>
+</body>
+</html>

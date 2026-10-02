@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Profile | JIIT IMC 2026</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app-container">
+    <nav class="nav-bar-pager" style="margin-bottom: 1.5rem;">
+      <a id="profile-back-btn" href="team.html" class="nav-back-link" aria-label="Back to team">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+        <span>Our Team</span>
+      </a>
+    </nav>
+
+    <main class="profile-card-container">
+      <!-- Profile Image Box -->
+      <div id="profile-photo-wrap" class="profile-photo-large-box">
+        <img id="profile-img" src="" alt="Profile Photo">
+      </div>
+
+      <!-- Identity -->
+      <h1 id="profile-name" class="profile-title-name">NAME</h1>
+      <div id="profile-dept" class="profile-dept-tag">DEPARTMENT</div>
+      <p id="profile-bio" class="profile-bio-text">Bio description</p>
+
+      <!-- Styled Social & Professional Links (No raw blue underlines) -->
+      <div class="profile-social-row">
+        <a id="link-github" href="#" target="_blank" rel="noopener" class="social-chip-btn">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
+          <span>GitHub →</span>
+        </a>
+
+        <a id="link-linkedin" href="#" target="_blank" rel="noopener" class="social-chip-btn">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+          </svg>
+          <span>LinkedIn →</span>
+        </a>
+
+        <a id="link-resume" href="#" download class="social-chip-btn">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/>
+          </svg>
+          <span>Resume →</span>
+        </a>
+      </div>
+
+      <!-- Action Buttons matching fix.md 7.2 & 7.5 -->
+      <div class="profile-actions-stack">
+        <a id="btn-download-profile-pdf" href="#" download class="btn-profile-action btn-profile-secondary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+          Download Profile PDF
+        </a>
+
+        <button id="btn-save-contact" type="button" class="btn-profile-action btn-profile-secondary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="8.5" cy="7" r="4"/>
+            <line x1="20" y1="8" x2="20" y2="14"/>
+            <line x1="23" y1="11" x2="17" y2="11"/>
+          </svg>
+          Save Contact
+        </button>
+
+        <a id="btn-connect-me" href="#" class="btn-profile-action btn-profile-primary">
+          CONNECT WITH ME
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/vcf.js"></script>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const memberId = params.get('id') || 'saharsh';
+    const fromProject = params.get('fromProject');
+    const member = TEAM_MEMBERS[memberId] || TEAM_MEMBERS.saharsh;
+
+    document.title = `${member.name} | JIIT IMC 2026`;
+    document.getElementById('profile-img').src = member.photo;
+    document.getElementById('profile-name').textContent = member.name;
+    document.getElementById('profile-dept').textContent = member.dept;
+    document.getElementById('profile-bio').textContent = member.bio;
+    document.getElementById('profile-photo-wrap').style.background = member.tintBg;
+
+    if (fromProject) {
+      document.getElementById('profile-back-btn').href = `team.html?project=${fromProject}`;
+    }
+
+    document.getElementById('link-github').href = member.github;
+    document.getElementById('link-linkedin').href = member.linkedin;
+
+    const resumeEl = document.getElementById('link-resume');
+    resumeEl.href = member.pdfFile;
+    resumeEl.setAttribute('download', `${memberId}-resume.pdf`);
+
+    const dlProfilePdf = document.getElementById('btn-download-profile-pdf');
+    dlProfilePdf.href = member.pdfFile;
+    dlProfilePdf.setAttribute('download', `${memberId}-profile.pdf`);
+
+    document.getElementById('btn-save-contact').addEventListener('click', () => {
+      downloadVCF(memberId);
+    });
+
+    const connBtn = document.getElementById('btn-connect-me');
+    let connUrl = `connect.html?member=${memberId}`;
+    if (fromProject) connUrl += `&project=${fromProject}`;
+    connBtn.href = connUrl;
+  </script>
+  <script src="js/agentation-loader.js"></script>
+</body>
+</html>

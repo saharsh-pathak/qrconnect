@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <circle cx="60" cy="60" r="60" fill="#4c566a" />
+  <circle cx="60" cy="45" r="22" fill="#e5e9f0" />
+  <path d="M25 105 C30 75, 90 75, 95 105" fill="#eceff4" />
+  <text x="60" y="52" font-family="system-ui, sans-serif" font-size="16" font-weight="700" fill="#2e3440" text-anchor="middle">DG</text>
+</svg>

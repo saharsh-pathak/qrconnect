@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 80" width="160" height="80">
+  <g transform="translate(10, 5)">
+    <!-- Torch & Flame flame motif -->
+    <path d="M35 15 C30 5, 40 2, 35 -5 C45 5, 45 12, 35 15 Z" fill="#d9534f" />
+    <path d="M32 18 C30 10, 36 8, 33 2 C39 10, 38 15, 32 18 Z" fill="#f0ad4e" />
+    <!-- Leaf / Ring -->
+    <path d="M22 28 C15 15, 30 5, 35 5 C40 5, 55 15, 48 28 C42 20, 28 20, 22 28 Z" fill="#5cb85c" />
+    <!-- Base Holder -->
+    <path d="M28 32 L42 32 L39 48 L31 48 Z" fill="#0275d8" />
+    <rect x="25" y="48" width="20" height="4" rx="2" fill="#333333" />
+    <!-- Text -->
+    <text x="35" y="66" font-family="system-ui, sans-serif" font-size="16" font-weight="900" fill="#0b5394" text-anchor="middle" letter-spacing="1">JIIT</text>
+  </g>
+</svg>

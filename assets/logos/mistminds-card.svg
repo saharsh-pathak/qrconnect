@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" width="100%" height="70" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#bfe0ef" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#7ab8d4" stop-opacity="0.7"/>
+    </linearGradient>
+  </defs>
+  <!-- City Skyline Silhouette with clean mist -->
+  <path d="M0 80 L320 80 L320 60 L290 60 L290 45 L275 45 L275 62 L250 62 L250 35 L235 35 L235 62 L210 62 L210 50 L195 50 L195 65 L160 65 L160 40 L145 40 L145 65 L120 65 L120 52 L105 52 L105 65 L80 65 L80 48 L65 48 L65 65 L30 65 L30 55 L0 55 Z" fill="#99c9de" opacity="0.6"/>
+  <!-- Smooth mist curves -->
+  <path d="M0 65 Q90 50 180 65 T320 55" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.8"/>
+  <path d="M0 72 Q120 60 220 72 T320 68" fill="none" stroke="#ffffff" stroke-width="3" opacity="0.9"/>
+</svg>

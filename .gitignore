@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment & OS
+.DS_Store
+Thumbs.db
+*.log
+
+# Internal Project Specs & Design Mockups
+UI/
+PRD.md
+workflow.md
+pagedesign.md
+DESIGN.md
+fix.md
+
+# Global rules, agents, & prompt configs
+.agents/
+.gemini/
+*caveman*
+*ponytail*
+*rule*
+GEMINI.md
+AGENTS.md
+
+# Temporary test crops
+assets/ui/*_test*
+assets/ui/teampage_thumb.png
+assets/ui/header_crop_test.png
+assets/ui/card1_test.png
+assets/ui/card2_test.png
+assets/ui/card3_test.png

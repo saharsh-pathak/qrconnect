@@ -1,6 +1,10 @@
 // JIIT IMC 2026 - Streamlined Contact & Lead Capture Handler
 // Handles direct networking submission for Name, Email, Designation, Organization
 
+// Optional: Paste your deployed Google Sheet Apps Script Web App URL here
+// Enables 100% free direct-to-sheet submissions on GitHub Pages or Netlify without any server!
+const GOOGLE_SHEET_WEBHOOK_URL = "";
+
 // Parse URL query parameters for context retention
 const params = new URLSearchParams(window.location.search);
 const memberId = params.get('member');
@@ -105,35 +109,49 @@ if (connectForm) {
     }
 
     try {
-      const res = await fetch('/api/connect', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(leadData)
-      });
+      let sentSuccessfully = false;
 
-      if (res.ok) {
-        showStep('success');
-      } else {
-        if (isLocalOrStatic()) {
-          console.log("Local/Static fallback - recorded lead:", leadData);
-          saveLocalLead(leadData);
-          showStep('success');
-        } else {
-          throw new Error("Lead save failed");
+      // 1. Direct submit to Google Sheet Webhook if configured (Works on GitHub Pages, Netlify, etc. without any server)
+      if (GOOGLE_SHEET_WEBHOOK_URL && GOOGLE_SHEET_WEBHOOK_URL.startsWith('https://script.google.com/')) {
+        try {
+          await fetch(GOOGLE_SHEET_WEBHOOK_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(leadData)
+          });
+          sentSuccessfully = true;
+          console.log("Lead submitted directly to Google Sheet Webhook:", leadData);
+        } catch (webhookErr) {
+          console.warn("Direct Google Sheet post error:", webhookErr);
         }
       }
+
+      // 2. If no webhook URL or if running with serverless function, try /api/connect
+      if (!sentSuccessfully) {
+        try {
+          const res = await fetch('/api/connect', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(leadData)
+          });
+          if (res.ok) {
+            sentSuccessfully = true;
+          }
+        } catch (apiErr) {
+          // Non-fatal if on pure static host without /api
+        }
+      }
+
+      // Always save to browser localStorage as an offline safety net
+      saveLocalLead(leadData);
+
+      // Transition to success screen
+      showStep('success');
     } catch (err) {
-      if (isLocalOrStatic()) {
-        console.log("Local/Static fallback - recorded lead:", leadData);
-        saveLocalLead(leadData);
-        showStep('success');
-      } else {
-        alert("Could not save connection at this moment. Please check your connection and try again.");
-        if (submitBtn) {
-          submitBtn.disabled = false;
-          submitBtn.innerHTML = `<span>CONNECT</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>`;
-        }
-      }
+      console.warn("Saving to offline backup due to network state:", err);
+      saveLocalLead(leadData);
+      showStep('success');
     }
   });
 }

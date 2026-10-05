@@ -97,7 +97,12 @@ if (btnBackFromGoogle) {
   btnBackFromGoogle.addEventListener('click', () => {
     showStep('choice');
   });
-}
+// Central Google OAuth Configuration
+// Replace with your Google OAuth 2.0 Web Client ID from Google Cloud Console
+// E.g. "1234567890-abcdef12345.apps.googleusercontent.com"
+const GOOGLE_CONFIG = {
+  clientId: "YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com"
+};
 
 // Decode Google JWT without external dependencies
 function parseJwt(token) {
@@ -121,42 +126,128 @@ window.handleCredentialResponse = function(response) {
   if (googleUserPayload) {
     const nameEl = document.getElementById('google-profile-name');
     const emailEl = document.getElementById('google-profile-email');
+    const avatarImg = document.getElementById('google-profile-avatar-img');
+    const avatarSvg = document.getElementById('google-profile-avatar-svg');
+
     if (nameEl) nameEl.textContent = googleUserPayload.name || "Google User";
     if (emailEl) emailEl.textContent = googleUserPayload.email || "";
+
+    // Show Google profile photo if provided in the credential
+    if (googleUserPayload.picture && avatarImg && avatarSvg) {
+      avatarImg.src = googleUserPayload.picture;
+      avatarImg.style.display = "block";
+      avatarSvg.style.display = "none";
+    }
 
     showStep('google');
   }
 };
 
-// Google Button Click Trigger
-const btnChoiceGoogle = document.getElementById('btn-choice-google');
-if (btnChoiceGoogle) {
-  btnChoiceGoogle.addEventListener('click', () => {
-    if (window.google && window.google.accounts && window.google.accounts.id) {
-      window.google.accounts.id.prompt((notification) => {
-        if (notification.isNotDisplayed() || notification.isSkippedMoment()) {
-          // If One Tap is suppressed or running on unauthenticated localhost origin,
-          // render quick Google credential simulation prompt for testing
-          showGoogleFallbackPrompt();
-        }
+// Initialize Google Identity Services
+function initGoogleIdentity() {
+  if (!window.google || !window.google.accounts || !window.google.accounts.id) return;
+
+  const isConfigured = GOOGLE_CONFIG.clientId && !GOOGLE_CONFIG.clientId.includes('YOUR_GOOGLE_CLIENT_ID');
+
+  if (isConfigured) {
+    try {
+      google.accounts.id.initialize({
+        client_id: GOOGLE_CONFIG.clientId,
+        callback: window.handleCredentialResponse,
+        auto_select: false,
+        cancel_on_tap_outside: true,
+        itp_support: true,
+        use_fedcm_for_prompt: true
       });
-    } else {
-      showGoogleFallbackPrompt();
+
+      // Render official Google button inside the overlay target
+      const target = document.getElementById('google-btn-render-target');
+      if (target) {
+        google.accounts.id.renderButton(target, {
+          type: 'standard',
+          theme: 'outline',
+          size: 'large',
+          text: 'continue_with',
+          shape: 'rectangular',
+          logo_alignment: 'left',
+          width: target.offsetWidth || 340
+        });
+      }
+    } catch (e) {
+      console.warn("Google Identity initialization error:", e);
+    }
+  }
+}
+
+// Check and initialize when GIS script is ready
+if (window.google && window.google.accounts) {
+  initGoogleIdentity();
+} else {
+  window.addEventListener('load', () => {
+    setTimeout(initGoogleIdentity, 300);
+  });
+}
+
+// Fallback & In-App Modal handling
+const googleModal = document.getElementById('google-modal-overlay');
+const btnCloseModal = document.getElementById('btn-close-google-modal');
+const simForm = document.getElementById('google-sim-form');
+
+function openGoogleModal() {
+  if (googleModal) googleModal.style.display = 'flex';
+}
+
+function closeGoogleModal() {
+  if (googleModal) googleModal.style.display = 'none';
+}
+
+if (btnCloseModal) {
+  btnCloseModal.addEventListener('click', closeGoogleModal);
+}
+
+if (googleModal) {
+  googleModal.addEventListener('click', (e) => {
+    if (e.target === googleModal) closeGoogleModal();
+  });
+}
+
+if (simForm) {
+  simForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = document.getElementById('sim-google-name').value.trim();
+    const email = document.getElementById('sim-google-email').value.trim();
+
+    if (name && email) {
+      googleUserPayload = { name: name, email: email };
+      googleIdToken = null;
+
+      const nameEl = document.getElementById('google-profile-name');
+      const emailEl = document.getElementById('google-profile-email');
+      if (nameEl) nameEl.textContent = name;
+      if (emailEl) emailEl.textContent = email;
+
+      closeGoogleModal();
+      showStep('google');
     }
   });
 }
 
-function showGoogleFallbackPrompt() {
-  const simEmail = prompt("Enter your Gmail address to continue with Google:", "visitor@gmail.com");
-  if (simEmail && simEmail.includes('@')) {
-    const simName = prompt("Enter your Name:", "Convention Attendee") || "Convention Attendee";
-    googleUserPayload = { name: simName, email: simEmail };
-    const nameEl = document.getElementById('google-profile-name');
-    const emailEl = document.getElementById('google-profile-email');
-    if (nameEl) nameEl.textContent = simName;
-    if (emailEl) emailEl.textContent = simEmail;
-    showStep('google');
-  }
+// Google Choice Card Click
+const btnChoiceGoogle = document.getElementById('btn-choice-google');
+if (btnChoiceGoogle) {
+  btnChoiceGoogle.addEventListener('click', () => {
+    const isConfigured = GOOGLE_CONFIG.clientId && !GOOGLE_CONFIG.clientId.includes('YOUR_GOOGLE_CLIENT_ID');
+
+    if (isConfigured && window.google && window.google.accounts && window.google.accounts.id) {
+      window.google.accounts.id.prompt((notification) => {
+        if (notification.isNotDisplayed() || notification.isSkippedMoment()) {
+          openGoogleModal();
+        }
+      });
+    } else {
+      openGoogleModal();
+    }
+  });
 }
 
 // 1. Google Flow Submission

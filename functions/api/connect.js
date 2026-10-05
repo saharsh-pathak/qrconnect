@@ -17,14 +17,35 @@ export async function onRequestPost({ request, env }) {
       event
     } = data;
 
-    if (!name || !email) {
+    let finalName = name;
+    let finalEmail = email;
+
+    // Cryptographically verify Google ID Token if provided by Google Identity Services
+    if (data.idToken) {
+      try {
+        const verifyRes = await fetch(`https://oauth2.googleapis.com/tokeninfo?id_token=${encodeURIComponent(data.idToken)}`);
+        if (verifyRes.ok) {
+          const tokenInfo = await verifyRes.json();
+          if (tokenInfo.email) {
+            finalEmail = tokenInfo.email;
+          }
+          if (tokenInfo.name) {
+            finalName = tokenInfo.name;
+          }
+        }
+      } catch (tokenErr) {
+        console.warn("Google idToken verification skipped/failed:", tokenErr);
+      }
+    }
+
+    if (!finalName || !finalEmail) {
       return new Response(JSON.stringify({ error: "Missing required fields" }), {
         status: 400,
         headers: { "Content-Type": "application/json" }
       });
     }
 
-    // Exact 9 columns as specified in fix.md Section 12:
+    // Exact 9 columns as specified in fix.md Section 12 & PRD.md:
     // 1. Timestamp
     // 2. Name
     // 3. Email
@@ -36,8 +57,8 @@ export async function onRequestPost({ request, env }) {
     // 9. Event
     const row = [
       timestamp || new Date().toISOString(),
-      name,
-      email,
+      finalName,
+      finalEmail,
       designation || "N/A",
       org || "N/A",
       connectedWith || "General Networking",

@@ -92,15 +92,11 @@ if (connectForm) {
     }
 
     const leadData = {
-      timestamp: new Date().toISOString(),
+      timestamp: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }),
       name: name,
       email: email,
       designation: designation,
-      org: org || "N/A",
-      connectedWith: connectedWithName,
-      projectInterest: interestProject,
-      consent: "Yes",
-      event: "IMC 2026"
+      org: org || "N/A"
     };
 
     if (submitBtn) {
@@ -114,11 +110,15 @@ if (connectForm) {
       // 1. Direct submit to Google Sheet Webhook if configured (Works on GitHub Pages, Netlify, etc. without any server)
       if (GOOGLE_SHEET_WEBHOOK_URL && GOOGLE_SHEET_WEBHOOK_URL.startsWith('https://script.google.com/')) {
         try {
+          const payload = {
+            ...leadData,
+            row: [leadData.timestamp, leadData.name, leadData.email, leadData.designation, leadData.org]
+          };
           await fetch(GOOGLE_SHEET_WEBHOOK_URL, {
             method: 'POST',
             mode: 'no-cors',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(leadData)
+            body: JSON.stringify(payload)
           });
           sentSuccessfully = true;
           console.log("Lead submitted directly to Google Sheet Webhook:", leadData);

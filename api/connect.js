@@ -22,30 +22,22 @@ export default async function handler(req, res) {
       name,
       email,
       designation,
-      org,
-      connectedWith,
-      projectInterest,
-      consent,
-      event
+      org
     } = data || {};
 
     if (!name || !email || !designation) {
       return res.status(400).json({ error: 'Missing required fields: name, email, designation' });
     }
 
-    // 9 Exact Columns matching PRD.md & fix.md:
-    // 1. Timestamp | 2. Name | 3. Email | 4. Designation | 5. Organization
-    // 6. Connected With | 7. Interest / Project | 8. Consent | 9. Event
+    // Exactly 5 Columns:
+    // 1. Timestamp | 2. Name | 3. Gmail/Email | 4. Designation | 5. Organization
+    const formattedTimestamp = timestamp || new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
     const row = [
-      timestamp || new Date().toISOString(),
+      formattedTimestamp,
       name,
       email,
       designation,
-      org || 'N/A',
-      connectedWith || 'General Networking',
-      projectInterest || 'General Networking',
-      consent || 'Yes',
-      event || 'IMC 2026'
+      org || 'N/A'
     ];
 
     // Method 1: Google Apps Script Webhook (Recommended & Easiest for Vercel/Netlify)
@@ -57,15 +49,11 @@ export default async function handler(req, res) {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             row,
-            timestamp: row[0],
+            timestamp: formattedTimestamp,
             name,
             email,
             designation,
-            org: row[4],
-            connectedWith: row[5],
-            projectInterest: row[6],
-            consent: row[7],
-            event: row[8]
+            org: org || 'N/A'
           })
         });
         console.log('Webhook dispatched to Google Sheet. Status:', scriptRes.status);

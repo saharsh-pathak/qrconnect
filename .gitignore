@@ -10,7 +10,7 @@ Thumbs.db
 *.log
 
 # Internal Project Specs & Design Mockups
-UI/
+/UI/
 PRD.md
 workflow.md
 pagedesign.md

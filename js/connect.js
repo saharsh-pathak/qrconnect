@@ -1,9 +1,9 @@
 // JIIT IMC 2026 - Streamlined Contact & Lead Capture Handler
 // Handles direct networking submission for Name, Email, Designation, Organization
 
-// Optional: Paste your deployed Google Sheet Apps Script Web App URL here
-// Enables 100% free direct-to-sheet submissions on GitHub Pages or Netlify without any server!
-const GOOGLE_SHEET_WEBHOOK_URL = "";
+// Live Google Sheet Apps Script Webhook URL
+// Enables direct-to-sheet submissions on GitHub Pages, Netlify, or any static host!
+const GOOGLE_SHEET_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbxuEp0uT41P4EHHzZJ1fmxCo_Zm7EIZ2July-F_oVAdQUbopyO6r4bhxHvN-ZP4zQaG/exec";
 
 // Parse URL query parameters for context retention
 const params = new URLSearchParams(window.location.search);

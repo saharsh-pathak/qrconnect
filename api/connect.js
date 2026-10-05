@@ -48,8 +48,8 @@ export default async function handler(req, res) {
       event || 'IMC 2026'
     ];
 
-    // Method 1: Google Apps Script Webhook (Recommended & Easiest for Vercel)
-    const webhookUrl = process.env.GOOGLE_SHEET_WEBHOOK_URL;
+    // Method 1: Google Apps Script Webhook (Recommended & Easiest for Vercel/Netlify)
+    const webhookUrl = process.env.GOOGLE_SHEET_WEBHOOK_URL || "https://script.google.com/macros/s/AKfycbxuEp0uT41P4EHHzZJ1fmxCo_Zm7EIZ2July-F_oVAdQUbopyO6r4bhxHvN-ZP4zQaG/exec";
     if (webhookUrl) {
       try {
         const scriptRes = await fetch(webhookUrl, {

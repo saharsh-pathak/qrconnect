@@ -53,27 +53,8 @@
         </a>
       </div>
 
-      <!-- Action Buttons matching fix.md 7.2 & 7.5 -->
+      <!-- Action Buttons -->
       <div class="profile-actions-stack">
-        <a id="btn-download-profile-pdf" href="#" download class="btn-profile-action btn-profile-secondary">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-            <polyline points="7 10 12 15 17 10"/>
-            <line x1="12" y1="15" x2="12" y2="3"/>
-          </svg>
-          Download Profile PDF
-        </a>
-
-        <button id="btn-save-contact" type="button" class="btn-profile-action btn-profile-secondary">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-            <circle cx="8.5" cy="7" r="4"/>
-            <line x1="20" y1="8" x2="20" y2="14"/>
-            <line x1="23" y1="11" x2="17" y2="11"/>
-          </svg>
-          Save Contact
-        </button>
-
         <a id="btn-connect-me" href="#" class="btn-profile-action btn-profile-primary">
           CONNECT WITH ME
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -109,14 +90,6 @@
     const resumeEl = document.getElementById('link-resume');
     resumeEl.href = member.pdfFile;
     resumeEl.setAttribute('download', `${memberId}-resume.pdf`);
-
-    const dlProfilePdf = document.getElementById('btn-download-profile-pdf');
-    dlProfilePdf.href = member.pdfFile;
-    dlProfilePdf.setAttribute('download', `${memberId}-profile.pdf`);
-
-    document.getElementById('btn-save-contact').addEventListener('click', () => {
-      downloadVCF(memberId);
-    });
 
     const connBtn = document.getElementById('btn-connect-me');
     let connUrl = `connect.html?member=${memberId}`;

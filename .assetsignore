@@ -1,0 +1,11 @@
+node_modules/
+.git/
+.github/
+.agents/
+.gemini/
+*.md
+UI/
+src/
+build-agentation.js
+package.json
+package-lock.json

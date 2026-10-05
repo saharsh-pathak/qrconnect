@@ -3,7 +3,7 @@
 
 // Live Google Sheet Apps Script Webhook URL
 // Enables direct-to-sheet submissions on GitHub Pages, Netlify, or any static host!
-const GOOGLE_SHEET_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbxuEp0uT41P4EHHzZJ1fmxCo_Zm7EIZ2July-F_oVAdQUbopyO6r4bhxHvN-ZP4zQaG/exec";
+const GOOGLE_SHEET_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbzyh2gb8HYZndbjY93W8k20Sh3qW1-tCDztbv-X4IsfCC-GsS5S5tXk0rCcuJd26AFl/exec";
 
 // Parse URL query parameters for context retention
 const params = new URLSearchParams(window.location.search);

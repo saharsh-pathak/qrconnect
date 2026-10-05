@@ -41,7 +41,7 @@ export default async function handler(req, res) {
     ];
 
     // Method 1: Google Apps Script Webhook (Recommended & Easiest for Vercel/Netlify)
-    const webhookUrl = process.env.GOOGLE_SHEET_WEBHOOK_URL || "https://script.google.com/macros/s/AKfycbxuEp0uT41P4EHHzZJ1fmxCo_Zm7EIZ2July-F_oVAdQUbopyO6r4bhxHvN-ZP4zQaG/exec";
+    const webhookUrl = process.env.GOOGLE_SHEET_WEBHOOK_URL || "https://script.google.com/macros/s/AKfycbzyh2gb8HYZndbjY93W8k20Sh3qW1-tCDztbv-X4IsfCC-GsS5S5tXk0rCcuJd26AFl/exec";
     if (webhookUrl) {
       try {
         const scriptRes = await fetch(webhookUrl, {

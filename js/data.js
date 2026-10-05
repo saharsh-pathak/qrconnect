@@ -188,8 +188,8 @@ const TEAM_MEMBERS = {
     bio: "Building AI and hardware solutions for real-world problems. Interested in open-source, edge AI and human-centered technology.",
     photo: "assets/ui/SAHARSH.jpeg",
     tintBg: "#F5EBE1",
-    github: "https://github.com",
-    linkedin: "https://linkedin.com",
+    github: "https://github.com/saharsh-pathak",
+    linkedin: "https://www.linkedin.com/in/saharsh-pathak/?isSelfProfile=true",
     pdfFile: "assets/pdfs/saharsh-profile.pdf",
     email: "saharsh@jiit.ac.in"
   },
@@ -200,8 +200,8 @@ const TEAM_MEMBERS = {
     bio: "Focused on robotics, mechanical design and building robust systems for real-world applications.",
     photo: "assets/ui/Dev.jpeg",
     tintBg: "#E3F0F9",
-    github: "https://github.com",
-    linkedin: "https://linkedin.com",
+    github: null,
+    linkedin: "https://www.linkedin.com/in/dev-gupta-137930380?utm_source=share_via&utm_content=profile&utm_medium=member_android",
     pdfFile: "assets/pdfs/dev-profile.pdf",
     email: "dev@jiit.ac.in"
   },

@@ -84,8 +84,19 @@
       document.getElementById('profile-back-btn').href = `team.html?project=${fromProject}`;
     }
 
-    document.getElementById('link-github').href = member.github;
-    document.getElementById('link-linkedin').href = member.linkedin;
+    const githubLink = document.getElementById('link-github');
+    if (member.github) {
+      githubLink.href = member.github;
+    } else if (githubLink) {
+      githubLink.remove();
+    }
+
+    const linkedinLink = document.getElementById('link-linkedin');
+    if (member.linkedin) {
+      linkedinLink.href = member.linkedin;
+    } else if (linkedinLink) {
+      linkedinLink.remove();
+    }
 
     const resumeEl = document.getElementById('link-resume');
     resumeEl.href = member.pdfFile;

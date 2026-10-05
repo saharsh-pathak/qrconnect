@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Exhibition QR Code | JIIT IMC 2026</title>
+  <meta name="description" content="Official QR Code for the JIIT IMC 2026 Student Exhibition Portal.">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .qr-card-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 1.5rem 1rem 2.5rem 1rem;
+    }
+
+    .qr-box {
+      width: 280px;
+      height: 280px;
+      background: #FFFFFF;
+      border-radius: var(--radius-lg);
+      padding: 1rem;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+      border: 1px solid var(--border-light);
+      margin: 1.5rem 0 1.25rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .qr-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .qr-url-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-full);
+      padding: 0.5rem 1rem;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      text-decoration: none;
+      margin-bottom: 2rem;
+    }
+
+    .qr-actions-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      width: 100%;
+      max-width: 320px;
+    }
+
+    @media print {
+      body {
+        background: #FFFFFF !important;
+      }
+      .nav-bar-pager, .qr-actions-grid {
+        display: none !important;
+      }
+      .app-container {
+        max-width: 100% !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+      }
+      .qr-box {
+        width: 360px !important;
+        height: 360px !important;
+        border: 2px solid #000000 !important;
+        box-shadow: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-container">
+    <nav class="nav-bar-pager">
+      <a href="index.html" class="nav-back-link" aria-label="Back to home">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+        <span>Home</span>
+      </a>
+    </nav>
+
+    <main class="qr-card-container">
+      <div style="font-size: 0.75rem; font-weight: 800; letter-spacing: 0.1em; color: var(--text-tertiary); text-transform: uppercase;">
+        JIIT @ IMC 2026
+      </div>
+      <h1 class="page-title" style="font-size: 1.6rem; font-weight: 900; margin: 0.25rem 0 0.5rem 0;">Scan to Explore</h1>
+      <p class="page-subtitle" style="font-size: 0.88rem; margin-bottom: 0;">Scan this QR code with any mobile camera to view our student projects & team portal.</p>
+
+      <div class="qr-box">
+        <img src="assets/ui/website_qr.png" alt="QR Code for https://qrconnect.vercel.app">
+      </div>
+
+      <a href="https://qrconnect.vercel.app" target="_blank" rel="noopener" class="qr-url-pill">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
+        <span>qrconnect.vercel.app</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+
+      <div class="qr-actions-grid">
+        <a href="assets/ui/website_qr.png" download="jiit-imc2026-qr.png" class="btn-cta-dark" style="width: 100%;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download High-Res PNG
+        </a>
+
+        <a href="assets/ui/website_qr.svg" download="jiit-imc2026-qr.svg" class="btn-cta-light" style="width: 100%;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          Download Vector SVG (Print)
+        </a>
+
+        <button onclick="window.print()" class="btn-cta-light" style="width: 100%; cursor: pointer;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+          Print Booth Poster
+        </button>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

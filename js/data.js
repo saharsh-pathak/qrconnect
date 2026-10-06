@@ -190,7 +190,7 @@ const TEAM_MEMBERS = {
     tintBg: "#F5EBE1",
     github: "https://github.com/saharsh-pathak",
     linkedin: "https://www.linkedin.com/in/saharsh-pathak/?isSelfProfile=true",
-    pdfFile: "assets/pdfs/saharsh-profile.pdf",
+    pdfFile: "resume/Saharsh_Pathak.pdf",
     email: "saharsh@jiit.ac.in"
   },
   dev: {
